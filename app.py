@@ -1,7 +1,7 @@
 import streamlit as st
 from sqlalchemy import text
 
-list_jenis_kelamin = ['Perempuan', 'Laki-Laki']
+list_jenis_kelamin = ['', 'Perempuan', 'Laki-Laki']
 
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://helvytianarn:5uEaoKh2VFGP@ep-shy-frog-96637425.us-east-2.aws.neon.tech/web")
