@@ -1,5 +1,6 @@
 import streamlit as st
 from sqlalchemy import text
+from datetime import datetime
 
 list_jenis_kelamin = ['', 'Perempuan', 'Laki-Laki']
 
@@ -42,7 +43,7 @@ if page == "Edit Data":
                 nrp_baru = st.text_input("nrp", nrp_lama)
                 jenis_kelamin_baru = st.selectbox("jenis_kelamin", list_jenis_kelamin, list_jenis_kelamin.index(jenis_kelamin_lama))
                 tempat_lahir_baru = st.text_input("tempat_lahir", tempat_lahir_lama)
-                tanggal_lahir_baru = st.date_input("tanggal_lahir", tanggal_lahir_lama)
+                tanggal_lahir_baru = st.date_input("tanggal_lahir", tanggal_lahir_lama, min_value=datetime(1800,1,1))
                 asal_baru = st.text_input("asal", asal_lama)
                 alamat_domisili_baru = st.text_input("alamat_domisili", alamat_domisili_lama)
                 
