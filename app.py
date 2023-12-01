@@ -6,15 +6,15 @@ list_jenis_kelamin = ['Perempuan', 'Laki-Laki']
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://helvytianarn:5uEaoKh2VFGP@ep-shy-frog-96637425.us-east-2.aws.neon.tech/web")
 with conn.session as session:
-    query = text('CREATE TABLE IF NOT EXISTS MAHASISWA (id serial, nama varchar, nrp varchar, jenis_kelamin varchar, \
-                                                       tempat_lahir text, tanggal_lahir date, asal text, alamat_domisili text);')
+    query = text('CREATE TABLE IF NOT EXISTS MAHASISWA (id serial, nama varchar, nrp int, jenis_kelamin varchar, \
+                                                       tempat_lahir varchar, tanggal_lahir int, asal varchar, alamat_domisili varchar);')
     session.execute(query)
 
-st.header('SIMPLE HOSPITAL DATA MANAGEMENT SYSTEM')
+st.header('DATA MAHASISWA')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data","Edit Data"])
 
 if page == "View Data":
-    data = conn.query('SELECT * FROM schedule ORDER By id;', ttl="0").set_index('id')
+    data = conn.query('SELECT * FROM MAHASISWA ORDER By id;', ttl="0").set_index('id')
     st.dataframe(data)
 
 if page == "Edit Data":
