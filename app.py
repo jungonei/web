@@ -7,7 +7,7 @@ conn = st.connection("postgresql", type="sql",
                      url="postgresql://helvytianarn:5uEaoKh2VFGP@ep-shy-frog-96637425.us-east-2.aws.neon.tech/web")
 with conn.session as session:
     query = text('CREATE TABLE IF NOT EXISTS MAHASISWA (id serial, nama varchar, nrp int, jenis_kelamin varchar, \
-                                                       tempat_lahir varchar, tanggal_lahir int, asal varchar, alamat_domisili varchar);')
+                                                       tempat_lahir varchar, tanggal_lahir date, asal varchar, alamat_domisili varchar);')
     session.execute(query)
 
 st.header('DATA MAHASISWA')
